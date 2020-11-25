@@ -27,7 +27,7 @@ Hello World Example
 Not beating around the bush, this is the <em>Hello, World!</em> program in Tuplex:
 
     main():
-        print( "Hello, world!" );
+        print( "Hello, world!" )
 
 The syntax is a relative of C, Java, and Python, with some influences from Rust, Go, and Ada.
 
@@ -37,9 +37,11 @@ Notes
 
 ### Status
 
-The language and compiler is in a working state, and quite extensive programs can be written in Tuplex. The foundation library is already quite extensive and makes use of the language's most advanced features. There is also a very easy-to-use foreign function interface to C.
+The language and compiler is in a working state. The foundation library is already fairly extensive and makes use of the language's most advanced features. There is also a very easy-to-use foreign function interface to C.
 
-Tasks completed in Aug-Oct:
+For version 0.5 the scanner was rewritten from scratch and the syntax overhauled in order to realize full support for significant whitespace, i.e. using indentation for program structure and making the use of {, }, and ; completely optional. This makes the syntax muchmore visually light-weight has been a goal from the start but was hard to implement with Flex, the original scanner generator.
+
+Tasks recently completed:
 
 - Debugging information has been added. A Tuplex program can now be stepped and inspected in your favorite debugger
 - Basic type reflection and safe runtime type casting and conditionals
@@ -72,5 +74,3 @@ What does the Tuplex design consider "easy to write and read" to mean?
     The syntax should be visually light-weight and aid (not obfuscate) the programmer's understanding
   </li>
 </ul>
-
-Tuplex has a working, expressive and unambiguous grammar. However, once the core features that have syntactic constructs are completed, an overhaul is planned. As constructs have been implemented the syntax has grown a bit in complexity and is not quite as "easy" as aimed for. One of the objectives is to make semicolons optional and support an indentation-based block structure like e.g. Python (while retaining the option to use braces if desired, e.g. Haskell provides a choice like this).

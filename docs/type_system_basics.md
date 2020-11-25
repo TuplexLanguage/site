@@ -6,6 +6,8 @@ layout: default
 
 *This text presumes the reader is generally familiar with types in programming languages.*
 
+*Note - braces and semicolons used to demarkate blocks and statements below may be omitted, and indentation syntax used instead.*
+
 For a general text on the type system approach and goals, see the post [A Consistent Type System Foundation](2017/04/27/consistent_type_system.html).
 
 ### Type Declaration Syntax

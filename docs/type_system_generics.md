@@ -4,6 +4,8 @@ layout: default
 
 ## Type System: Generics
 
+*Note - braces and semicolons used to demarkate blocks and statements below may be omitted, and indentation syntax used instead. (Type parameters, e.g. Ref{T}, do require braces.)*
+
 This text is quite technical and presumes the reader is familiar with generic programming concepts.
 
 > *On generic programming, from Wikipedia: [Generic programming is a style of computer programming in which algorithms are written in terms of types to-be-specified-later that are then instantiated when needed for specific types provided as parameters. This approach permits writing common functions or types that differ only in the set of types on which they operate when used, thus reducing duplication.](https://en.wikipedia.org/wiki/Generic_programming)*
