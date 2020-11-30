@@ -20,7 +20,7 @@ It is also possible to create a suite of zero or more statements using `{`braces
 
 #### Fields
 
-Fields / variables are defined using `: =`, and both implicit and explicit type declaration is supported. Note that literal values are given the smallest type needed to hold the value, unless the literal type signifier is supplied (more details on this later).
+Fields / variables are defined using `: =`, and both implicit and explicit type declaration is supported. Note that literal value expressions are given the smallest type needed to hold the value, unless the literal type signifier is supplied (more details on this later).
 
     ubyteValue := 32
     intValue := 32I
@@ -36,7 +36,7 @@ Type definitions require the `type` keyword. The following examples also show ho
 
 > Tuplex naming convention: Start type names with a capital letter; and functions, fields / variables with a lower case letter. Constants should be all-caps.
 
-The syntax of scalar and boolean expressions, as well as function calls, is straight-forward and similar to other languages like C++ and Java. If and while statements can be single-statement using colon, or multi-statement using brackets.
+The syntax of scalar and boolean expressions, as well as function calls, is straight-forward and similar to other languages like C++ and Java. If and while statements can be one-liners or multi-statement using indentation (or braces).
 
     result := (2.0 + square( someLen )) / 3.14
     if result > 20.0:
@@ -47,15 +47,15 @@ The syntax of scalar and boolean expressions, as well as function calls, is stra
         tmp = tmp - 1
 
 
-> Mutability: Tuplex variables / fields are immutable by default. The 'mut' keyword or the '~' tilde token are used to indicate the value may be modified after initialization.
+> Mutability: Tuplex variables / fields are immutable by default. The 'mut' keyword or the '~' tilde token are used to indicate that the value may be modified after initialization.
 
 
 #### Other Basic Syntax Elements
 
 - Line comments begin with ##.
 - Multi-line comments are enclosed between /* and */. Comments can be nested.
-- Statements are typically terminated with a newline (with an optional ';' semicolon).
-- Bodies of types, functions, and suites of statements are demarkated with a deeper indentation level.
+- Statements are typically terminated with a newline (or a ';' semicolon, for multiple statements on a line).
+- Bodies of types, functions, and suites of statements are demarcated with a deeper indentation level.
 
 
 #### Imports
