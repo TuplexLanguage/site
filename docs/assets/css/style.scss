@@ -57,7 +57,7 @@ section {
     padding: 10px 10px 10px 10px;
 
     color: #400000;
-    
+
     h1, h2, h3, h4, h5, h6 {
         color:#322;
     }
@@ -148,6 +148,8 @@ pre, code {
   border-radius: 1px;
   -moz-border-radius: 1px;
   -webkit-border-radius: 1px;
+
+  max-width: 80vw;
 }
 
 pre {
