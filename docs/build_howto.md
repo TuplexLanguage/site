@@ -1,5 +1,6 @@
 ---
 layout: default
+comments: true
 ---
 ## How to Build the Tuplex Compiler
 

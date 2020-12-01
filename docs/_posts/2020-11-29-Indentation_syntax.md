@@ -1,5 +1,6 @@
 ---
 layout: default
+comments: true
 title: Indentation Syntax
 ---
 {{ page.date | date: "%Y-%m-%d" }}

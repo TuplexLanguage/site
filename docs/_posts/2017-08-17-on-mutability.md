@@ -1,5 +1,6 @@
 ---
 layout: default
+comments: true
 title: On Mutability
 ---
 {{ page.date | date: "%Y-%m-%d" }}

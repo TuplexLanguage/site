@@ -1,5 +1,6 @@
 ---
 layout: default
+comments: true
 title: A Consistent Type System Foundation
 ---
 {{ page.date | date: "%Y-%m-%d" }}

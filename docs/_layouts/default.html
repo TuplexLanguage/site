@@ -54,6 +54,10 @@
         <!-- <div id="spacing_leftbar"></div>  This is needed if using a fixed navbar -->
         <section>
           {{ content }}
+
+          {% if page.comments %}
+          {% include disqus.html %}
+          {% endif %}
         </section>
         <!--
         <nav>
