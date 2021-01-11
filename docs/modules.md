@@ -44,12 +44,12 @@ sub-scope which starts with a colon and is demarcated using indentation (or brac
     import tx.c.puts
     
     module my.file.mod.submod:
-        import another.mod.*
+        import another.mod.get_string
     
-        SUB_FIELD := c"42"
+        SUB_FIELD := get_string()
     
-    main():                       ## this is outside the submodule, in my.file.mod
-        puts( submod.SUB_FIELD )  ## relative qualified identifier
+    main():                       ## declared outside the submodule, gets the full name my.file.mod.main
+        puts( submod.SUB_FIELD )  ## submod.SUB_FIELD is looked up relative to my.file.mod
 
 Submodules may contain submodules of their own, and so on. However it is usually inadvisable to nest them within
 the same file.
