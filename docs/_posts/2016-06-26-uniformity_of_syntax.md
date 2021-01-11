@@ -33,17 +33,15 @@ cFunction                   := square;
 ## function returning function:
 type FuncProvider derives ()-> ( a : Int )->Int;
 
-type Multiplier : {
+type Multiplier :
     b : Int;
 
     mul( a : Int )->Int : { return a * self.b; }
 
-    higher( f : FuncType )->Int : {
+    higher( f : FuncType )->Int :
         return f( self.b );
-    }
-}
 
-main()->Int : {
+main()->Int :
     localFunc := ( a : Int )->Int : return a * 2; ;
 
     value : ~Int = 2;
@@ -68,5 +66,4 @@ main()->Int : {
     value = value + mulObj.higher( ( a : Int )->Int : { return a + 1; } );
 
     return value;  ## process returns 131
-}
 ```

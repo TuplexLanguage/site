@@ -11,6 +11,7 @@
 * <a href="{{ site.baseurl }}/ranges.html">Ranges</a>
 * <a href="{{ site.baseurl }}/type_system_basics.html">Type System I: Basics</a>
 * <a href="{{ site.baseurl }}/type_system_generics.html">Type System II: Generics</a>
+* <a href="{{ site.baseurl }}/modules.html">Modules, Files, and Imports</a>
 
 ### Blog Entries
 

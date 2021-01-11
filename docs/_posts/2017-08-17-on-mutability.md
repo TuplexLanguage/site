@@ -35,14 +35,12 @@ The tilde `~` symbol is used to denote mutability in type and field declarations
 
 
     ## An immutable type - the default - is declared like so:
-    type MyImmType : {
+    type MyImmType :
          immfield : Int;
-    }  
 
     ## A mutable type is declared like so:
-    type ~ MyMutType : {
+    type ~ MyMutType :
          mutfield : ~Int;
-    }
 
 The type definition of `Int` and all the other built-in elementary types are mutable.<br>(See `tx/elementary.tx`.)
 
@@ -100,7 +98,7 @@ Consider the use case of a Map, a generic container type that is parameterized o
 
 In order to allow for mutable instances, the generic type must be declared mutable:
 
-    type ~ Map{ K, V } : { ... }
+    type ~ Map{ K, V } : ...
 
 Both mutable and immutable specializations of Map may be declared. If the map specialization is declared mutable, it will in practice require both type parameters to be mutable since the map's modifying methods will modify keys and values in it.
 
@@ -125,16 +123,15 @@ It's analogous for the built-in arrays - they must have a mutable element type i
 
 In order to preserve immutability on objects of types with methods, we must distinguish between the methods that modify the object and those that don't. In order to be permitted to modify the object's contents, the method must be declared as mutating. (For readers familiar with C++ this is analogous to non-const and const methods.)
 
-    type ~ Stack{ E } : {
+    type ~ Stack{ E } :
         count() -> UInt :      ## non-mutating (read-only) method
-        { ... }
+            ...
 
         push( value : E ) ~ :  ## mutating method
-        { ... }
+            ...
 
         pop() ~ -> E :         ## mutating method with return value
-        { ... }
-    }
+            ...
 
 In mutating methods, the `self` reference will refer to a mutable object; in the non-mutating method it will refer to an immutable object.
 

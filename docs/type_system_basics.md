@@ -7,8 +7,6 @@ comments: true
 
 *This text presumes the reader is generally familiar with types in programming languages.*
 
-*Note - braces and semicolons used to demarkate blocks and statements below may be omitted, and indentation syntax used instead.*
-
 For a general text on the type system approach and goals, see the post [A Consistent Type System Foundation](2017/04/27/consistent_type_system.html).
 
 ### Type Declaration Syntax
@@ -28,14 +26,12 @@ interface NAME ( <: INTERFACE ( , INTERFACE )* )? ( ; | BODY )
 Declaring a plain old data type (a tuple of fields), mutable or not, is very simple:
 
     ## An immutable plain old data type:
-    type MyImmType : {
-         immfield : Int;
-    }  
+    type MyImmType :
+         immfield : Int
 
     ## A mutable plain old data type:
-    type ~ MyMutType : {
-         mutfield : ~Int;
-    }
+    type ~ MyMutType :
+         mutfield : ~Int
 
 > The Tuplex naming convention is to start type names with a capital letter.
 
@@ -63,11 +59,16 @@ The fields and methods of a type are its *members*.
 
 A type inherits all the members of its supertypes, and may access them by name.
 
-A type member is either an instance member or a non-instance (virtual/static) member.
+A member is either an instance member or a non-instance (known as virtual or static) member.
 
-If a subtype declares a member with the same name as a member of a supertype, the supertype's member is overridden. That means that for instances of the subtype, the *overriding* member will be accessed by that name instead of the overridden original. This redirection is transparent to users of the type and is [a mechanism for polymorphism](https://en.wikipedia.org/wiki/Subtyping).
+If a subtype declares a member with the same name as a member of a supertype, the supertype's member is overridden.
+That means that for instances of the subtype, the *overriding* member will be accessed by that name
+instead of the overridden original.
+This redirection is transparent to users of the type and is [a mechanism for polymorphism](https://en.wikipedia.org/wiki/Subtyping).
 
-Non-instance members are always virtual in Tuplex except for some special cases (e.g. constructors). Therefore the typical 'static' keyword used in many other OO languages is not used here, instead Tuplex uses only 'virtual'. *(This may be revised in the future.)*
+Non-instance members are always virtual in Tuplex except for some special cases (e.g. constructors).
+Therefore the typical 'static' keyword used in many other OO languages is not used here,
+instead Tuplex uses only 'virtual'. *(This may be revised in the future.)*
 
 
 ### Interfaces
@@ -93,37 +94,30 @@ Interfaces have no instance data and thus no constructors.
 Using methods, constructors, and interfaces we can create the more sophisticated type hierarchies familiar from other OO languages:
 
 ```
-interface IntfA : {
+interface IntfA :
     abstract get_value()->Int;
 
     ## "mixin" or default-implementation interface methods:
-    mixin_method_1()->Int : return 1;
-    mixin_method_2()->Int : return 2;
-}
+    mixin_method_1()->Int : return 1
+    mixin_method_2()->Int : return 2
 
-interface IntfB <: IntfA : {         ## extends the interface IntfA
-    abstract set_value( v : Int );
-}
+interface IntfB <: IntfA :         ## extends the interface IntfA
+    abstract set_value( v : Int )
 
-type ~ MyType <: Tuple, IntfB : {    ## a Tuple type that implements IntfB
-    field : ~Int;
+type ~ MyType <: Tuple, IntfB :    ## a Tuple type that implements IntfB
+    field : ~Int
 
-    self(f : Int) : {
-        self.field = f;
-    }
+    self(f : Int) :
+        self.field = f
 
-    override get_value()->Int : {
-        return self.field;
-    }
+    override get_value()->Int :
+        return self.field
 
-    override set_value( v : Int ) ~ : {
-        self.field = v;
-    }
+    override set_value( v : Int ) ~ :
+        self.field = v
 
-    override mixin_method_2()->Int : {
-        return 3;
-    }
-}
+    override mixin_method_2()->Int :
+        return 3
 ```
 
 
@@ -131,8 +125,8 @@ type ~ MyType <: Tuple, IntfB : {    ## a Tuple type that implements IntfB
 
 An empty derivation is a derivation that that doesn't specify any new members or interfaces. It creates a unique new type that is structurally identical to an existing one:
 
-    type MyImmType2 <: MyImmType;
-    type ~ MyMutType2 <: MyMutType;
+    type MyImmType2 <: MyImmType
+    type ~ MyMutType2 <: MyMutType
 
 Note: An empty derivation has the same constructors as its basetype (which is not the case for non-empty derivations).
 
