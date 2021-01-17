@@ -24,8 +24,8 @@ and their contents will be added to that module. This way a module may be split 
 If a file has been explicitly specified on the compiler command line, it may declare any module name except for
 the reserved namespace `tx`. 
 
-Files that are indirectly loaded - import statements causing them to be
-loaded from the source file path list - must declare the module name expected of that file.
+Files that are indirectly loaded (import statements causing them to be loaded from the module paths list)
+must declare the module name expected of that file.
 
 The module declaration is optional. If it is not present the file is considered the $local namespace (see section below).
 
@@ -74,7 +74,7 @@ without having to write the fully qualified name every time. For example:
     import tx.c.*
 
 When an import statement is encountered, the compiler will look for the source files for that module.
-For each directory in the source path list, it will look first for a `.tx` file with the exact same name as
+For each directory in the module paths list, it will look first for a `.tx` file with the exact same name as
 the fully qualified module name (e.g. `my.file.mod.submod.tx`).
 If such a file is not present, it will look for a directory tree matching the module name (e.g. `my/file/mod/submod/`)
 and load all the `.tx` files contained therein.
@@ -82,8 +82,8 @@ and load all the `.tx` files contained therein.
 This way simple modules, test modules, and early prototype modules can simply be put in their own files,
 and larger modules can be split up across multiple source files in their own directory.
 
-The source path list by default contains the current directory where the compiler is being run.
-It may be specified using the -sp command line argument, or with the `TUPLEX_PATH` environment variable.
+The module paths list by default contains the current directory where the compiler is being run.
+It may be specified using the -mp command line argument, or with the `TUPLEX_MODULE_PATHS` environment variable.
 (The command line takes precedence over the environment variable.)
 
 

@@ -8,12 +8,12 @@ The current working state of the Tuplex compiler is available on GitHub:
 
 <a href="https://github.com/TuplexLanguage/tuplex" target="_blank">https://github.com/TuplexLanguage/tuplex</a>
 
-So far the build has only been tested on Linux/Ubuntu. If you have a Ubuntu system or are an experienced *nix developer
+So far the build has been tested on Linux/Ubuntu. If you have a Ubuntu system or are an experienced *nix developer
 it will be straight-forward to get it to build.
 
 These are the prerequisite tools, and the version it currently builds with.
 There is a script below (also included in the repo) to automatically install them for you if you are on an Ubuntu system.
-The script uses apt for most of them; the llvm installation is a bit more involved but is also handled by the script.
+The script uses apt to install them.
 
 * cmake 3.16.3
 * make 4.2.1
@@ -45,6 +45,8 @@ git clone https://github.com/TuplexLanguage/tuplex.git
 
 **Step 2:**
 The following commands ensure the necessary build tools are installed and then builds Tuplex.
+(See further down for how to do this using Docker instead.)
+
 Either copy-paste this into your console, or run as a bash script.
 It is in the repo and can be sourced directly from the command line like this.
 (If you execute it in a subprocess, you need to set the environment variables at the end manually.)
@@ -109,17 +111,14 @@ After this file has been changed, you need to run `cmake ..` again followed by `
 
 Note the paths env variables at the end. You may want to set them with absolute paths in your ~/.bashrc.
 
-Note that there is a wrapper script called `scripts/txc` which attempts to locate your current build's txc executable.
-If your current working directory is the build directory it will work just fine without the `build/bin` directory in the path,
-as long as `$TUPLEX_HOME/scripts` is in the path.
-
 
 ### Build using Docker
 
 Instead of installing and building locally, if you're familiar with Docker, you can install and run Tuplex
 in an isolated Docker container instead. 
 
-(This is a good guide to setting up Docker on Ubuntu: https://www.tecmint.com/install-docker-on-ubuntu/)
+(This is a good guide to setting up Docker on Ubuntu:
+<a href="https://www.tecmint.com/install-docker-on-ubuntu/" target="_blank">https://www.tecmint.com/install-docker-on-ubuntu/</a>)
 
 Run these commands:
 
@@ -199,6 +198,11 @@ There are some ready-made scripts in the `compiler/scripts/` directory. If you a
 
 * `txb`
 Build script that runs the compiler, the LLVM optimizer and linker to produce a stand-alone executable. Command line args are forwarded to txc.
+
+* `txc`
+Wrapper script `scripts/txc` which attempts to locate your current build's txc executable.
+If your current working directory is the build directory this wrapper will work just fine without the `build/bin`
+directory in the path, as long as `$TUPLEX_HOME/scripts` is in the path.
 
 * `txts`
 Runs the test suite.

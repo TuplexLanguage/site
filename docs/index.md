@@ -43,6 +43,8 @@ For version 0.5 the scanner was rewritten from scratch and the syntax overhauled
 
 Tasks recently completed:
 
+- Full support for ranges, with syntactic sugar and for loop integration ( N..M  N..step..M )
+- Rewrote first pass, the scanner, from scratch, and support for indentation-based program structure
 - Debugging information has been added. A Tuplex program can now be stepped and inspected in your favorite debugger
 - Basic type reflection and safe runtime type casting and conditionals
 - Completed handling of dynamic-length and nested arrays

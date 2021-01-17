@@ -11,20 +11,20 @@ This is an overview of the essential features of the Tuplex programming language
 * Context-free, consistent, left-to-right type expression syntax
 * Syntactically unified function/lambda construct
 
-Work in progress:
-* Intuitive and unified syntax for arrays, collection types, ranges, and sequencors / iterators
+Mostly completed:
+* Intuitive and unified syntax for arrays, collection types, ranges, and sequencers / iterators
 
 ### Strong yet easy to use type system
 
 * Strong, compile-time type checking
 * All values are syntactically treated as objects, but without "boxing" overhead
 * Generic types, parameterizable with both types and values
-* Consistent polymorphism (all values are objects) with single inheritance plus interfaces
+* Consistent polymorphism (all values can be treated as objects) with single inheritance plus interfaces
 * Automatic type inference
 * Safe and intuitive type checking and type conversion
 * Values and types are immutable by default, must be explicitly declared as modifiable
 
-Work in progress:
+Mostly completed:
 * Type-safe references; no null reference vulnerability
 * Value/object initialization guarantees
 
@@ -55,11 +55,11 @@ This work requires many of the other essential features to be ready and will com
 
 These capabilities aren't "essential", but would complement the rest of the language well.
 
-* Comprehensive run-time type information
-* Built-in efficient serialization and de-serialization
 * Safe unions (so-called sum types) as a built-in language feature
 * Vectors (SIMD types) as first-class citizens
 * Zero-boiler-plate object proxying (type delegation)
+* Comprehensive run-time type information
+* Built-in efficient serialization and de-serialization
 
 ### What Tuplex does not aim to provide
 
